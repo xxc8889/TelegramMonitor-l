@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多账号管理</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="p-4 md:p-6 bg-base-200 min-h-screen">
+    <div id="toast" class="toast toast-top toast-center"></div>
+
+    <div class="container mx-auto max-w-6xl">
+        <h1 class="text-2xl font-bold mb-6">多账号管理</h1>
+
+        <!-- 监控状态 -->
+        <div class="card bg-base-100 shadow-xl mb-6">
+            <div class="card-body">
+                <h2 class="card-title">监控状态</h2>
+                <div class="flex gap-4 items-center">
+                    <div class="badge" id="monitorStatus">未知</div>
+                    <button class="btn btn-success" id="btnStartMonitor" onclick="startMonitoring()">启动监控</button>
+                    <button class="btn btn-error" id="btnStopMonitor" onclick="stopMonitoring()">停止监控</button>
+                    <button class="btn btn-info" onclick="refreshStatus()">刷新状态</button>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-semibold">目标群组设置</h3>
+                    <div class="flex gap-2 items-center mt-2">
+                        <input id="targetChatId" class="input input-bordered flex-1" placeholder="输入目标群组ID（如：-1001234567890）">
+                        <button class="btn" onclick="setTargetChat()">设置目标</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 账号列表 -->
+        <div class="card bg-base-100 shadow-xl mb-6">
+            <div class="card-body">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="card-title">账号列表</h2>
+                    <button class="btn btn-primary" onclick="openAddAccountModal()">添加账号</button>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="table w-full">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>名称</th>
+                                <th>手机号</th>
+                                <th>登录状态</th>
+                                <th>启用状态</th>
+                                <th>最后登录</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="accountsTable">
+                            <!-- 动态填充 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加账号模态框 -->
+    <dialog id="addAccountModal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg mb-4">添加账号</h3>
+            <div class="space-y-4">
+                <div class="form-control">
+                    <label class="label"><span class="label-text">账号名称</span></label>
+                    <input id="accountName" class="input input-bordered" placeholder="给账号起个名字">
+                </div>
+                <div class="form-control">
+                    <label class="label"><span class="label-text">API ID</span></label>
+                    <input id="accountApiId" type="number" class="input input-bordered" placeholder="Telegram API ID">
+                </div>
+                <div class="form-control">
+                    <label class="label"><span class="label-text">API Hash</span></label>
+                    <input id="accountApiHash" class="input input-bordered" placeholder="Telegram API Hash">
+                </div>
+                <div class="form-control">
+                    <label class="label"><span class="label-text">手机号</span></label>
+                    <input id="accountPhone" class="input input-bordered" placeholder="+8613812345678">
+                </div>
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn btn-primary mr-2" onclick="addAccount()">添加</button>
+                    <button class="btn">取消</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- 登录模态框 -->
+    <dialog id="loginModal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg mb-4" id="loginTitle">登录账号</h3>
+            <div class="space-y-4">
+                <input id="loginInput" class="input input-bordered w-full" placeholder="请输入">
+                <div id="loginMessage" class="text-sm text-gray-600"></div>
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn btn-primary mr-2" onclick="submitLogin()">提交</button>
+                    <button class="btn">取消</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="accounts.js"></script>
+</body>
+</html>

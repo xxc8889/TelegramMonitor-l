@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelegramMonitor - 多账号版</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="p-6 bg-base-200 min-h-screen">
+    <div class="container mx-auto max-w-4xl">
+        <h1 class="text-3xl font-bold text-center mb-8">TelegramMonitor 多账号版</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 多账号管理 -->
+            <div class="card bg-primary text-primary-content shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title">🔗 多账号管理</h2>
+                    <p>管理多个Telegram账号，统一监控转发</p>
+                    <div class="card-actions justify-end">
+                        <a href="accounts.html" class="btn btn-secondary">管理账号</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 关键词配置 -->
+            <div class="card bg-secondary text-secondary-content shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title">🎯 关键词配置</h2>
+                    <p>设置监控关键词和屏蔽规则</p>
+                    <div class="card-actions justify-end">
+                        <a href="keywords.html" class="btn btn-primary">配置关键词</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 快速开始 -->
+            <div class="card bg-accent text-accent-content shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title">🚀 快速开始</h2>
+                    <p>一步添加账号，立即开始监控</p>
+                    <div class="card-actions justify-end">
+                        <a href="accounts.html" class="btn btn-neutral">立即开始</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 功能特点 -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold text-center mb-6">🌟 新功能特点</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h3 class="card-title">🚀 多账号支持</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>支持添加多个Telegram账号</li>
+                            <li>每个账号可设置独立的API ID/Hash</li>
+                            <li>统一管理所有账号的登录状态</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h3 class="card-title">🎯 智能去重</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>多账号监听相同群组时自动去重</li>
+                            <li>基于消息内容和时间的哈希算法</li>
+                            <li>确保目标群组不会收到重复消息</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h3 class="card-title">🔐 用户名屏蔽</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>支持根据用户名包含关键词进行屏蔽</li>
+                            <li>例如：屏蔽包含"招商"的用户名</li>
+                            <li>提高监控精准度</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h3 class="card-title">⚙️ 灵活配置</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>一个项目实例管理所有账号</li>
+                            <li>统一的目标群组和Bot配置</li>
+                            <li>向后兼容原有功能</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 使用指南 -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold text-center mb-6">📖 快速开始</h2>
+            <div class="steps steps-vertical lg:steps-horizontal w-full">
+                <div class="step step-primary">
+                    <div class="step-content">
+                        <h3 class="font-bold">1. 添加账号</h3>
+                        <p>在多账号管理页面添加您的Telegram账号</p>
+                    </div>
+                </div>
+                <div class="step step-primary">
+                    <div class="step-content">
+                        <h3 class="font-bold">2. 登录验证</h3>
+                        <p>为每个账号完成手机验证和登录</p>
+                    </div>
+                </div>
+                <div class="step step-primary">
+                    <div class="step-content">
+                        <h3 class="font-bold">3. 设置目标</h3>
+                        <p>选择消息转发的目标群组</p>
+                    </div>
+                </div>
+                <div class="step step-primary">
+                    <div class="step-content">
+                        <h3 class="font-bold">4. 配置规则</h3>
+                        <p>设置关键词监控和屏蔽规则</p>
+                    </div>
+                </div>
+                <div class="step step-primary">
+                    <div class="step-content">
+                        <h3 class="font-bold">5. 开始监控</h3>
+                        <p>启动多账号监控，享受智能去重</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 版权信息 -->
+        <div class="mt-12 text-center">
+            <div class="divider"></div>
+            <p class="text-base-content/70">
+                作者: <a href="https://t.me/riniba" target="_blank" class="link">@riniba</a> | 
+                开源地址: <a href="https://github.com/Riniba/TelegramMonitor" target="_blank" class="link">GitHub</a> | 
+                交流群: <a href="https://t.me/RinibaGroup" target="_blank" class="link">Telegram</a>
+            </p>
+            <p class="text-base-content/50 mt-2">多账号功能由 Claude Code 增强开发</p>
+        </div>
+    </div>
+</body>
+</html>

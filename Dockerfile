@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/runtime-deps:9.0-bookworm-slim
+FROM mcr.microsoft.com/dotnet/runtime-deps:8.0-bookworm-slim
 WORKDIR /app
 ARG BIN_NAME=TelegramMonitor
 ARG TARGETARCH
